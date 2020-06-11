@@ -15,22 +15,28 @@ function App() {
           fetch('https://run.mocky.io/v3/cf8b2e79-16c1-4e2c-a288-003338355482')
           .then(response => response.json())
         ]);
-        const chatlogMessages = [];  
+        const chatlogMessages = []; 
+        const membersObj = {};
+        members.forEach((member) => {
+          membersObj[member.id] = {
+            fullName: `${member.firstName} ${member.lastName}`,
+            email: member.email,
+            avatar: member.avatar 
+          }
+        });
         messages.forEach(message => {
           let key = message.userId;
-          members.forEach(member => {
-            if(member.id === key) {
-             return chatlogMessages.push({
-                messageId: message.id,
-                userId: message.userId,
-                fullName: `${member.firstName} ${member.lastName}`,
-                timestamp: dateToTimestamp(message.timestamp),
-                email: member.email,
-                message: message.message,
-                avatar: member.avatar 
-              })
-            }
-          });
+          if(key in membersObj) {
+            return chatlogMessages.push({
+              messageId: message.id,
+              userId: message.userId,
+              fullName: membersObj[key].fullName,
+              timestamp: dateToTimestamp(message.timestamp),
+              email: membersObj[key].email,
+              message: message.message,
+              avatar: membersObj[key].avatar 
+            })
+          }
       });
       setChatLogs(sortByTimestamp(chatlogMessages));
     } catch(err) {

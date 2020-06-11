@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.list {
+  border: 1px solid;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  min-height: 5.2rem;
+}
+
+.innerList {
+  padding: 0;
+  position: relative;
+}
+
+.listContent {
+  display: flex;
+  align-items: center;
+}
+
+.value {
+  margin-left: 0.5rem;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+.avatar {
+  border: 1px solid transparent;
+  margin: 0 auto;
+  width: 5rem;
+  height: 5rem;
+}
+
+.avatar img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.emailVal {
+  display: none;
+  position: absolute;
+}
+
+.avatar:hover + .emailVal{ display: block; }

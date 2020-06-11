@@ -7,7 +7,7 @@ To Run the local env use command 'npm start' or 'yarn start' within folder (assi
 https://designer.mocky.io/
 
 ### Development has been done in below files
-App.css
-App.js
-src > components
-    > utils
+1. App.css
+2. App.js
+3. src > components
+4. src > utils

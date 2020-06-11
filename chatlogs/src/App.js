@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     getLogs();
-  })
+  },[])
   return (
     <div className="App">
       <List data={chatLogs}/>
